@@ -1,7 +1,7 @@
 frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
   //  home address map div
   $( "#map" ).remove();
-  $(cur_frm.get_field("address").wrapper).append('<div id="map" style="width: 875px; height: 600px;"></div>');
+  $(cur_frm.get_field("address").wrapper).append('<div id="map" style="width:425px; height: 425px;"></div>');
             var map, vectors, controls;
             var Lon             = 78 ;
             var Lat             = 21;
@@ -53,6 +53,23 @@ frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
             var point       = new OpenLayers.Geometry.Point( XY.lon, XY.lat );
             var featureOb   = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.Collection([point]) );
             vectorL.addFeatures( [featureOb] );  
+});
+
+frappe.ui.form.on("Locate Address On Map", "address", function(frm, dt, dn) {
+  // trigger on address field for settings lat lon from postal address
+      frappe.call({
+        method:"map.map.doctype.locate_your_address_on_map.locate_your_address_on_map.get_latlon",
+        args:{"args":""},
+        callback: function(r) {
+          if (r.message){
+            alert("hi");
+            /*frm.doc.region=r.message.region
+            frm.doc.zone=r.message.zone
+            refresh_field('region');              
+            refresh_field('zone');  */          
+          }
+        }
+      });
 });
 
 
