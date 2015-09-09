@@ -1,7 +1,7 @@
 frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
-  //  home address map div
+  //  appending map div to address field
   $( "#map" ).remove();
-  $(cur_frm.get_field("address").wrapper).append('<div id="map" style="width:425px; height: 425px;"></div>');
+  $(cur_frm.get_field("address").wrapper).append('<div id="map" style="width:350px; height: 350px;"></div>');
             var map, vectors, controls;
             var Lon             = 78 ;
             var Lat             = 21;
@@ -20,7 +20,7 @@ frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
             map.addLayer(new OpenLayers.Layer.OSM());
             map.setCenter(XY, Zoom);
             var deftColor     = "#00FF00";
-            var deftIcon      = "files/images.png";
+            var deftIcon      = "/assets/map/images.png";
             var featureHeight = 34;
             var featureWidth  = 20;
             var featureStyle  = {
@@ -56,16 +56,20 @@ frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
 });
 
 frappe.ui.form.on("Locate Address On Map", "address_form", function(frm, dt, dn) {
-  // trigger on address field for settings lat lon from postal address
+  // trigger on address form field for settings lat lon from postal address
       frappe.call({
         method:"map.locate_your_address_on_map.doctype.locate_address_on_map.locate_address_on_map.get_latlon",
-        args:{"args":""},
+        args:{
+            "address_form":frm.doc.address_form
+        },
         callback: function(r) {
-          if (r.message){            
-            /*frm.doc.region=r.message.region
-            frm.doc.zone=r.message.zone
-            refresh_field('region');              
-            refresh_field('zone');  */          
+          if (r.message){ 
+            frm.doc.lat=r.message['lat'];
+            frm.doc.lon=r.message['lng'];  
+            frm.doc.address= r.message['address']; 
+            refresh_field('lat');         
+            refresh_field('lon');         
+            refresh_field('address');            
           }
         }
       });
