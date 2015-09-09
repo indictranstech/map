@@ -55,14 +55,13 @@ frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
             vectorL.addFeatures( [featureOb] );  
 });
 
-frappe.ui.form.on("Locate Address On Map", "address", function(frm, dt, dn) {
+frappe.ui.form.on("Locate Address On Map", "address_form", function(frm, dt, dn) {
   // trigger on address field for settings lat lon from postal address
       frappe.call({
-        method:"map.map.doctype.locate_your_address_on_map.locate_your_address_on_map.get_latlon",
+        method:"map.locate_your_address_on_map.doctype.locate_address_on_map.locate_address_on_map.get_latlon",
         args:{"args":""},
         callback: function(r) {
-          if (r.message){
-            alert("hi");
+          if (r.message){            
             /*frm.doc.region=r.message.region
             frm.doc.zone=r.message.zone
             refresh_field('region');              

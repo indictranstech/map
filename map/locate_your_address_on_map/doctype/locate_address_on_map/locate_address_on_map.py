@@ -17,6 +17,9 @@ def get_latlon(args):
 	Get employee id and return points according to his attendance assumed the working days are 365 and points are 100
 	"""
 	# frappe.errprint("deleting documents")
-	res=requests.get("http://api.geonames.org/searchJSON?q=london&maxRows=10&username=demo")
-	frappe.errprint(res.text)
-	return round(points,2)
+	frappe.errprint("hi")
+	import requests
+	r = requests.get("http://api.geonames.org/postalCodeSearchJSON?postalcode=411032&maxRows=1&country=IN&username=gangadhar_kadam")
+
+	frappe.msgprint(r)
+	return r
