@@ -9,16 +9,21 @@ MIT -->
 
 ###Introduction:
 
-App for locating your exact address on map with lat lon<br>
+This app help you for locating your exact address on map with lat lon<br>
+
 Features:
 
-1. User will be able to sync google's primary calendar of selected account.
-2. User can create and updates the records, from google to erp and Vice Versa.
+1. User will select address link on "Locate Address On Map".
+2. the map will be displayed and the map marker will be set at yor address (the pincode is used for map , if poincode is not for selected address then the map will not displayed)
+3. your can move marker on map to change the location.
+4. The link of "Locate Address On Map" can be added on any form.
+![Map of address form ](map/public/add link of map.png)
 
 
 ###Depends on
 - frappe (To install: [bench page](https://github.com/frappe/bench) )
-- python module: requests
+- ERPNext 
+- python module: requests 
 
 ###Installation
 Note: Compatible with frappe 5 and above.
@@ -31,16 +36,16 @@ Note: Compatible with frappe 5 and above.
 ###Configuration Steps
 
 
-####Free sign up for genoanmes API
-![Google Console](gcal/public/images/google console.png)
+#### Sign up for Free Genoanmes API
+1. Sign up for free api account on "http://www.geonames.org/login"
+2. You will receive confirmation email from geonames on your registered email address.
+3. login and activate your account for api
 
-<b>Set redirect uri as,</b> `{Your Server Url}/api/method/gcal.gcal_sync.doctype.sync_configuration.sync_configuration.get_credentials` <br>
-<b>JavaScript origins : </b> `{Your Server Url}`
+![Register geonames](map/public/register geonames api.png)
+![confrmation email](map/public/confermation email.png)
+![Activate account](map/public/activate account for api.png)
 
-More on google developer console, [Google Developer Console](https://developers.google.com/console/help/new/)
-
-#### API key in map settiongs
+#### add API key in map settiongs
 <br> <b> Goto Map  > setup > Map Settings: </b>  Set Api Key here.
-![GCal Sync > GCal Secret](gcal/public/images/GcalSecret.png)
 
 #### Add link field of "Locate Address On Map" on any form 
