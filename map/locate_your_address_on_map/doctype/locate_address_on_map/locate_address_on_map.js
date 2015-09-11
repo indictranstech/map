@@ -5,12 +5,12 @@ frappe.ui.form.on("Locate Address On Map", "refresh", function(frm, dt, dn) {
             var map, vectors, controls;
             var Lon             = 78 ;
             var Lat             = 21;
-            var Zoom            = 3;
+            var Zoom            = 4;
             if (frm.doc.lat){
                 Lat=frm.doc.lat;
                 Lon=frm.doc.lon;
-                Zoom=7;
-              }               
+                Zoom=9;
+              } 
             var EPSG4326        = new OpenLayers.Projection( "EPSG:4326" );
             var EPSG900913      = new OpenLayers.Projection("EPSG:900913");
             var LL              = new OpenLayers.LonLat( Lon, Lat );
@@ -39,28 +39,29 @@ frappe.ui.form.on("Locate Address On Map", "refresh", function(frm, dt, dn) {
             map.addLayer( vectorL );
             
             var dragVectorC = new OpenLayers.Control.DragFeature(   vectorL, { 
-                                                                    onComplete: function(feature, pixel){
-                                                                      var point = feature.geometry.components[0];
-                                                                      var llpoint = point.clone()                                                            
-                                                                      llpoint.transform(  new OpenLayers.Projection(EPSG900913),new OpenLayers.Projection(EPSG4326));
-                                                                       frm.doc.lat=llpoint.y;
-                                                                        frm.doc.lon=llpoint.x;
-                                                                        refresh_field('lat');
-                                                                        refresh_field('lon');
-                                                                        frappe.call({
-                                                                                method:"map.locate_your_address_on_map.doctype.locate_address_on_map.locate_address_on_map.get_address",
-                                                                                args:{
-                                                                                    "lat":frm.doc.lat,
-                                                                                    "lon":frm.doc.lon,
-                                                                                },
-                                                                                callback: function(r) {
-                                                                                  if (r.message){ 
-                                                                                    frm.doc.address= r.message;       
-                                                                                    refresh_field('address');
-                                                                                    //cur_frm.refresh();        
-                                                                                  }
-                                                                                }
-                                                                        });
+                                                                        onComplete: function(feature, pixel){
+                                                                          var point = feature.geometry.components[0];
+                                                                          var llpoint = point.clone()                                                            
+                                                                          llpoint.transform(  new OpenLayers.Projection(EPSG900913),new OpenLayers.Projection(EPSG4326));
+                                                                          cur_frm.doc.lat=llpoint.y;
+                                                                          cur_frm.doc.lon=llpoint.x;
+                                                                          refresh_field('lat');
+                                                                          refresh_field('lon');
+                                                                          refresh_field('address');
+                                                                          frappe.call({
+                                                                                    method:"map.locate_your_address_on_map.doctype.locate_address_on_map.locate_address_on_map.get_address",
+                                                                                    args:{
+                                                                                        "lat":cur_frm.doc.lat,
+                                                                                        "lon":cur_frm.doc.lon,
+                                                                                    },
+                                                                                    callback: function(r) {
+                                                                                      if (r.message){ 
+                                                                                        cur_frm.doc.address= r.message;       
+                                                                                        refresh_field('address');
+                                                                                        //cur_frm.refresh();        
+                                                                                      }
+                                                                                    }
+                                                                            });
             }});
             map.addControl( dragVectorC );
             dragVectorC.activate();
@@ -74,13 +75,13 @@ frappe.ui.form.on("Locate Address On Map", "address_form", function(frm, dt, dn)
       frappe.call({
         method:"map.locate_your_address_on_map.doctype.locate_address_on_map.locate_address_on_map.get_latlon",
         args:{
-            "address_form":frm.doc.address_form
+            "address_form":cur_frm.doc.address_form
         },
         callback: function(r) {
           if (r.message){ 
-            frm.doc.lat=r.message['lat'];
-            frm.doc.lon=r.message['lng'];  
-            frm.doc.address= r.message['address']; 
+            cur_frm.doc.lat=r.message['lat'];
+            cur_frm.doc.lon=r.message['lng'];  
+            cur_frm.doc.address= r.message['address']; 
             refresh_field('lat');         
             refresh_field('lon');         
             refresh_field('address');    
