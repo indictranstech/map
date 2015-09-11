@@ -1,4 +1,4 @@
-frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
+frappe.ui.form.on("Locate Address On Map", "refresh", function(frm, dt, dn) {
   //  appending map div to address field
   $( "#map" ).remove();
   $(cur_frm.get_field("address").wrapper).append('<div id="map" style="width:350px; height: 350px;"></div>');
@@ -43,10 +43,24 @@ frappe.ui.form.on("Locate Address On Map", "onload", function(frm, dt, dn) {
                                                                       var point = feature.geometry.components[0];
                                                                       var llpoint = point.clone()                                                            
                                                                       llpoint.transform(  new OpenLayers.Projection(EPSG900913),new OpenLayers.Projection(EPSG4326));
-            frm.doc.lat=llpoint.y;
-            frm.doc.lon=llpoint.x;
-            refresh_field('lat');
-            refresh_field('lon');
+                                                                       frm.doc.lat=llpoint.y;
+                                                                        frm.doc.lon=llpoint.x;
+                                                                        refresh_field('lat');
+                                                                        refresh_field('lon');
+                                                                        frappe.call({
+                                                                                method:"map.locate_your_address_on_map.doctype.locate_address_on_map.locate_address_on_map.get_address",
+                                                                                args:{
+                                                                                    "lat":frm.doc.lat,
+                                                                                    "lon":frm.doc.lon,
+                                                                                },
+                                                                                callback: function(r) {
+                                                                                  if (r.message){ 
+                                                                                    frm.doc.address= r.message;       
+                                                                                    refresh_field('address');
+                                                                                    //cur_frm.refresh();        
+                                                                                  }
+                                                                                }
+                                                                        });
             }});
             map.addControl( dragVectorC );
             dragVectorC.activate();
@@ -69,7 +83,8 @@ frappe.ui.form.on("Locate Address On Map", "address_form", function(frm, dt, dn)
             frm.doc.address= r.message['address']; 
             refresh_field('lat');         
             refresh_field('lon');         
-            refresh_field('address');            
+            refresh_field('address');    
+            cur_frm.refresh();        
           }
         }
       });

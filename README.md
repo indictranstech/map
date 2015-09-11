@@ -31,7 +31,7 @@ Note: Compatible with frappe 5 and above.
 ###Configuration Steps
 
 
-####Enable the Google Calendar API
+####Free sign up for genoanmes API
 ![Google Console](gcal/public/images/google console.png)
 
 <b>Set redirect uri as,</b> `{Your Server Url}/api/method/gcal.gcal_sync.doctype.sync_configuration.sync_configuration.get_credentials` <br>
@@ -39,13 +39,8 @@ Note: Compatible with frappe 5 and above.
 
 More on google developer console, [Google Developer Console](https://developers.google.com/console/help/new/)
 
-####Setup Google Calendar API credentials
-<br> <b> Goto GCal Sync > GCal Secret : </b>  Set Client Id and Client Secret
+#### API key in map settiongs
+<br> <b> Goto Map  > setup > Map Settings: </b>  Set Api Key here.
 ![GCal Sync > GCal Secret](gcal/public/images/GcalSecret.png)
 
-####Setup individual profile
-<br>
-1. Login with own frappe user credentials
-2. Goto, Gcal Sync > Sync Configuration List > Create New Record.
-
-![Gcal Sync > Sync Configuration List > Create New Record](gcal/public/images/SyncConfig.png)
+#### Add link field of "Locate Address On Map" on any form 
