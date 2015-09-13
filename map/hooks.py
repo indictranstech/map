@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 app_name = "map"
-app_title = "Locate your address on map"
+app_title = "Map"
 app_publisher = "New Indictrans Technologies Pvt Ltd"
 app_description = "app for locating your exact address on map with lat lon"
 app_icon = "icon-map-marker"
@@ -14,12 +14,13 @@ app_version = "0.0.1"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/map/css/map.css"
+app_include_css = "/assets/map/css/leaflet.css"
 app_include_js = "http://openlayers.org/api/OpenLayers.js"
+app_include_js = "/assets/map/js/leaflet.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/map/css/map.css"
-# web_include_js = "/assets/map/js/map.js"
+#web_include_css = "/assets/map/css/leaflet.css"
+#web_include_js = "/assets/map/js/leaflet.js"
 
 # Home Pages
 # ----------

@@ -17,11 +17,11 @@ Features:
 2. the map will be displayed and the map marker will be set at yor address (the pincode is used for map , if poincode is not for selected address then the map will not displayed)
 3. your can move marker on map to change the location.
 4. The link of "Locate Address On Map" can be added on any form.
-![Map of address form ](map/public/add link of map.png)
+![Map of address form ](map/public/js/images/add link of map.png)
 
 
 ###Depends on
-- frappe (To install: [bench page](https://github.com/frappe/bench) )
+- Frappe (To install: [bench page](https://github.com/frappe/bench) )
 - ERPNext 
 - python module: requests 
 
@@ -41,9 +41,9 @@ Note: Compatible with frappe 5 and above.
 2. You will receive confirmation email from geonames on your registered email address.
 3. login and activate your account for api
 
-![Register geonames](map/public/register geonames api.png)
-![confrmation email](map/public/confermation email.png)
-![Activate account](map/public/activate account for api.png)
+![Register geonames](map/public/js/images/register geonames api.png)
+![confrmation email](map/public/js/images/confermation email.png)
+![Activate account](map/public/js/images/activate account for api.png)
 
 #### add API key in map settiongs
 <br> <b> Goto Map  > setup > Map Settings: </b>  Set Api Key here.
