@@ -28,7 +28,7 @@ Features:
 ###Installation
 Note: Compatible with frappe 5 and above.
 
-1. bench get-app map [https://github.com/gangadhar-kadam/map.git](https://github.com/gangadhar-kadam/map.git)
+1. bench get-app map [https://github.com/indictranstech/map.git](https://github.com/indictranstech/map.git)
 2. bench install-app map<br>or install from frappe desk installer.
 3. bench migrate
 
@@ -48,4 +48,4 @@ Note: Compatible with frappe 5 and above.
 #### add API key in map settiongs
 <br>  Goto Map  > setup > Map Settings:  Set Api Key here.
 
-#### Add link field of "Locate Address On Map" on any form 
+Add link field of "Locate Address On Map" on any form 
