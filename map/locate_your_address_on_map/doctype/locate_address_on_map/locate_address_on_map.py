@@ -26,7 +26,6 @@ def get_latlon(address_form):
 			ret["address"]=address_string
 			responce = requests.get("http://api.geonames.org/postalCodeSearchJSON?postalcode={0}&maxRows=1&country={1}&username={2}".format(address_text[0][4],code,api_key))
 			responce_json=json.loads(responce.text)
-			frappe.errprint(responce_json)
 			if 'postalCodes' in responce_json:
 				ret['lat']=responce_json['postalCodes'][0]['lat']
 				ret['lng']=responce_json['postalCodes'][0]['lng']
@@ -41,7 +40,10 @@ def get_address(lat,lon):
 	responce = requests.get("http://api.geonames.org/findNearbyJSON?lat={0}&lng={1}&username={2}".format(lat,lon,api_key))
 	responce_json=json.loads(responce.text)
 	address_string=""
-	if 'geonames' in responce_json:
-			address_string=responce_json['geonames'][0]['name']+" , "+responce_json['geonames'][0]['adminName1']+" , "+responce_json['geonames'][0]['countryName']	
+	try:
+		if responce_json['geonames'] :
+				address_string=responce_json['geonames'][0]['name']+" , "+responce_json['geonames'][0]['adminName1']+" , "+responce_json['geonames'][0]['countryName']	
+	except :
+				frappe.msgprint("The address not found for above location")
 	return address_string
 

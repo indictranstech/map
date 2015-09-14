@@ -6,7 +6,6 @@ GetMapInformation = Class.extend({
         this.mapid= opts.mapid;
         this.zoom = opts.zoom;
         this.frm = opts.cur_frm
-        this.address = opts.address;
         this.makeMap();
         this.tileLayerMap();
         this.markMap();
@@ -41,7 +40,7 @@ GetMapInformation = Class.extend({
         (me.marker).on("dragend", function(e){
             newmarker = e.target
             position = newmarker.getLatLng()
-            $.extend(me.frm.cscript, new getAddress({lat: position.lat, lon: position.lng, address: me.address}));            
+            $.extend(me.frm.cscript, new getAddress({lat: position.lat, lon: position.lng}));            
         });
 
     }
@@ -51,7 +50,6 @@ getAddress = Class.extend({
     init: function(opts){
         this.lat = opts.lat;
         this.lon = opts.lon;
-        this.address = opts.address;
         this.getAdressInfo()
     },
 
