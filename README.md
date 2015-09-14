@@ -9,10 +9,7 @@ MIT -->
 
 ###Introduction:
 
-
-This app will help you primarily geo-tag your address be it in association with Customer, Warehouse, Vendor or Users with the help of latitude and longitude of location. It based on freely available API which helps get to your area based on pin code.<br>
-You can specify the API URL as well.<br>
-as powered by API Name<br>
+This app will help you primarily geo-tag your address be it in association with Customer, Warehouse, Vendor or Users etc.. with the help of latitude and longitude of location. Pin-code to geo-location and vice versa is power by GeoNames API (freely available under CCA 3.0).<br>
 
 Features:
 
@@ -49,6 +46,6 @@ Note: Compatible with frappe 5 and above.
 ![Activate account](map/public/js/images/activate account for api.png)
 
 #### add API key in map settiongs
-<br> <b> Goto Map  > setup > Map Settings: </b>  Set Api Key here.
+<br>  Goto Map  > setup > Map Settings:  Set Api Key here.
 
 #### Add link field of "Locate Address On Map" on any form 
