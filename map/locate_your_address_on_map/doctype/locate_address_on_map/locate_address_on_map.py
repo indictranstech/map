@@ -26,6 +26,7 @@ def get_latlon(address_form):
 			ret["address"]=address_string
 			responce = requests.get("http://api.geonames.org/postalCodeSearchJSON?postalcode={0}&maxRows=1&country={1}&username={2}".format(address_text[0][4],code,api_key))
 			responce_json=json.loads(responce.text)
+			frappe.errprint(responce_json)
 			if 'postalCodes' in responce_json:
 				ret['lat']=responce_json['postalCodes'][0]['lat']
 				ret['lng']=responce_json['postalCodes'][0]['lng']

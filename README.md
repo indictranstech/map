@@ -9,7 +9,10 @@ MIT -->
 
 ###Introduction:
 
-This app help you for locating your exact address on map with lat lon<br>
+
+This app will help you primarily geo-tag your address be it in association with Customer, Warehouse, Vendor or Users with the help of latitude and longitude of location. It based on freely available API which helps get to your area based on pin code.<br>
+You can specify the API URL as well.<br>
+as powered by API Name<br>
 
 Features:
 
