@@ -16,15 +16,16 @@ Features:
 * Making address on map interface.
 * Locating any address using Pincode.
 * Exact marking of location by moving map marker.
-* Geo-tagging of address available in ERPNext.<br>
+* Geo-tagging of address available in ERPNext.<br><br>
+
 ![Map of address form ](map/public/js/images/add link of map.png)
 
 ###Basic flow:
 
-In "Locate Address On Map" form, user can select address from master and display it on Map.
-Map will be displayed and marker will be set on your address location using Pincode/Zipcode provided in address master.
-User can move marker on map to pin-point exact location.
-URL or Link of "Locate Address On Map" can be used in any form.
+In "Locate Address On Map" form, user can select address from master and display it on Map.<br>
+Map will be displayed and marker will be set on your address location using Pincode/Zipcode provided in address master.<br>
+User can move marker on map to pin-point exact location.<br>
+URL or Link of "Locate Address On Map" can be used in any form.<br>
 
 ###Depends on
 - Frappe (To install: [bench page](https://github.com/frappe/bench) )
@@ -46,7 +47,9 @@ Note: Compatible with frappe 5 and above.
 3. login and activate your account for api
 
 ![Register geonames](map/public/js/images/register geonames api.png)<br>
+
 ![confrmation email](map/public/js/images/confermation email.png)<br>
+
 ![Activate account](map/public/js/images/activate account for api.png)<br>
 
 ## add API key in map settiongs
