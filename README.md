@@ -11,7 +11,7 @@ MIT -->
 
 This Leaflet Map app will help you primarily to geo-tag your addresses associated  with Customer, Warehouse, Vendor, User etc. This app will use latitude and longitude of address to Geo-Tag it. Pin-code to Geo-location and vice versa can happen and this is powered by GeoNames API (freely available under CCA 3.0).<br>
 
-Features:
+###Features:
 
 * Making address on map interface.
 * Locating any address using Pincode.
