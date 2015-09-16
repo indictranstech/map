@@ -41,7 +41,7 @@ Note: Compatible with frappe 5 and above.
 
 ###Configuration Steps
 
-## Sign up for Free Genoanmes API
+#### Sign up for Free Genoanmes API
 1. Sign up for free api account on "http://www.geonames.org/login"
 2. You will receive confirmation email from geonames on your registered email address.
 3. login and activate your account for api
@@ -52,7 +52,7 @@ Note: Compatible with frappe 5 and above.
 
 ![Activate account](map/public/js/images/activate account for api.png)<br>
 
-## add API key in map settiongs
+#### add API key in map settiongs
 Goto Map  > setup > Map Settings:  Set Api Key here.
 Add link field of "Locate Address On Map" on any form <br>
 
