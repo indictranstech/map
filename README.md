@@ -49,3 +49,5 @@ Note: Compatible with frappe 5 and above.
 <br>  Goto Map  > setup > Map Settings:  Set Api Key here.
 
 Add link field of "Locate Address On Map" on any form 
+
+![Geo Tagging](map/public/js/images/geo tagging.png)
