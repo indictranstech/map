@@ -1,0 +1,33 @@
+[
+ {
+  "allow_on_submit": 0, 
+  "default": null, 
+  "depends_on": null, 
+  "description": null, 
+  "docstatus": 0, 
+  "doctype": "Custom Field", 
+  "dt": "Address", 
+  "fieldname": "map_address", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "ignore_user_permissions": 0, 
+  "in_filter": 0, 
+  "in_list_view": 0, 
+  "insert_after": "is_shipping_address", 
+  "label": "Map Address", 
+  "modified": "2015-09-19 11:00:53.535066", 
+  "name": "Address-map_address", 
+  "no_copy": 0, 
+  "options": "Locate Address On Map", 
+  "permlevel": 0, 
+  "precision": "", 
+  "print_hide": 0, 
+  "print_width": null, 
+  "read_only": 0, 
+  "report_hide": 0, 
+  "reqd": 0, 
+  "search_index": 0, 
+  "unique": 0, 
+  "width": null
+ }
+]

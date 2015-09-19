@@ -15,7 +15,7 @@ app_version = "0.0.1"
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/map/css/leaflet.css"
-app_include_js = "http://openlayers.org/api/OpenLayers.js"
+#app_include_js = "http://openlayers.org/api/OpenLayers.js"
 app_include_js = "/assets/map/js/leaflet.js"
 
 # include js, css files in header of web template
@@ -95,6 +95,8 @@ app_include_js = "/assets/map/js/leaflet.js"
 # 		"map.tasks.monthly"
 # 	]
 # }
+
+fixtures = ["Custom Field"]
 
 # Testing
 # -------
